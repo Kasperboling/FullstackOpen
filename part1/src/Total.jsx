@@ -1,7 +1,7 @@
-const Header = ({total}) => {
+const Total = ({total}) => {
     return (
         <p>{total}</p>
     )
   }
 
-  export default Header
+  export default Total
