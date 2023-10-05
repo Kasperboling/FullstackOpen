@@ -15,15 +15,21 @@ const App = () => {
   const [selected, setSelected] = useState(0)
   const [points, setPoint] = useState(Array.apply(null, new Array(8)).map(Number.prototype.valueOf,0));
   const [vote, setVote] = useState(points)
-  console.log(points)
+  const highestValue = Math.max(...points);
+  const highestValueIndex = points.indexOf(highestValue);
+
+  console.log(highestValueIndex);
 
   return (
     <>
+      <h2>Anecdote of the day</h2>
       {anecdotes[selected]}
       <p>Has {points[selected]} votes</p>
       <br />
       <button onClick={() => {setVote(points[selected] += 1)}}>Vote</button>
       <button onClick={() => {setSelected(Math.floor(Math.random() * 8))}}>Next anecdotes</button>
+      <h2>Anecdote with most votes</h2>
+      <p>{anecdotes[highestValueIndex]}</p>
     </>
   )
 }
